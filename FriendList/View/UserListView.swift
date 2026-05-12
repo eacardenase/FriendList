@@ -12,7 +12,32 @@ struct UserListView: View {
 
     var body: some View {
         List(users, id: \.id) { user in
-            Text(user.name)
+            NavigationLink {
+                UserDetailsView(user: user)
+            } label: {
+                HStack(alignment: .firstTextBaseline) {
+                    VStack(alignment: .leading) {
+                        Text(user.name)
+                            .font(.headline)
+
+                        Text(user.company)
+                            .font(.subheadline)
+                    }
+
+                    Spacer()
+
+                    HStack {
+                        Circle()
+                            .frame(width: 16)
+                            .foregroundStyle(user.isActive ? .green : .red)
+
+                        Text(user.isActive ? "Active" : "Inactive")
+
+                        Spacer(minLength: 0)
+                    }
+                    .frame(width: 100)
+                }
+            }
         }
         .navigationTitle("Users")
         .task {

@@ -12,5 +12,22 @@ class User: Codable {
     var name: String
     var age: Int
     var isActive: Bool
+    var company: String
     var friends: [Friend]
+
+    init(
+        id: String,
+        name: String,
+        age: Int,
+        isActive: Bool,
+        company: String,
+        friends: [Friend]
+    ) {
+        self.id = id
+        self.name = name
+        self.age = age
+        self.isActive = isActive
+        self.company = company
+        self.friends = friends
+    }
 }
