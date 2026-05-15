@@ -5,13 +5,15 @@
 //  Created by Edwin Cardenas on 5/11/26.
 //
 
+import SwiftData
 import SwiftUI
 
 struct UserListView: View {
-    @State private var users = [User]()
+    @Query var users: [User]
+    @Environment(\.modelContext) var modelContext
 
     var body: some View {
-        List(users, id: \.id) { user in
+        List(users) { user in
             NavigationLink {
                 UserDetailsView(user: user)
             } label: {
@@ -59,10 +61,12 @@ struct UserListView: View {
             let (data, _) = try await URLSession.shared.data(for: request)
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
-            
+
             let decodedUsers = try decoder.decode([User].self, from: data)
 
-            users = decodedUsers
+            for user in decodedUsers {
+                modelContext.insert(user)
+            }
         } catch {
             print(
                 "Failed to fetch users with error: \(error.localizedDescription)"
