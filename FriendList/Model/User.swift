@@ -13,6 +13,7 @@ class User: Codable {
     var age: Int
     var isActive: Bool
     var company: String
+    var about: String
     var friends: [Friend]
 
     init(
@@ -21,6 +22,7 @@ class User: Codable {
         age: Int,
         isActive: Bool,
         company: String,
+        about: String,
         friends: [Friend]
     ) {
         self.id = id
@@ -28,6 +30,7 @@ class User: Codable {
         self.age = age
         self.isActive = isActive
         self.company = company
+        self.about = about
         self.friends = friends
     }
 }

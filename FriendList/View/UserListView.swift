@@ -15,7 +15,7 @@ struct UserListView: View {
             NavigationLink {
                 UserDetailsView(user: user)
             } label: {
-                HStack(alignment: .firstTextBaseline) {
+                HStack {
                     VStack(alignment: .leading) {
                         Text(user.name)
                             .font(.headline)
