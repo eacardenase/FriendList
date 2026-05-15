@@ -41,7 +41,10 @@ struct UserListView: View {
         }
         .navigationTitle("Users")
         .task {
-            await fetchUsers()
+            if users.isEmpty {
+                await fetchUsers()
+            }
+
         }
     }
 
