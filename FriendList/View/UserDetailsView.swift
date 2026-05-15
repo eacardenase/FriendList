@@ -60,6 +60,7 @@ struct UserDetailsView: View {
         company: "Topaz",
         about:
             "Occaecat consequat elit aliquip magna laboris dolore laboris sunt officia adipisicing reprehenderit sunt. Do in proident consectetur labore. Laboris pariatur quis incididunt nostrud labore ad cillum veniam ipsum ullamco. Dolore laborum commodo veniam nisi. Eu ullamco cillum ex nostrud fugiat eu consequat enim cupidatat. Non incididunt fugiat cupidatat reprehenderit nostrud eiusmod eu sit minim do amet qui cupidatat. Elit aliquip nisi ea veniam proident dolore exercitation irure est deserunt.",
+        registered: .now,
         friends: [
             Friend(id: "0", name: "Luisa"),
             Friend(id: "1", name: "Wilder"),
